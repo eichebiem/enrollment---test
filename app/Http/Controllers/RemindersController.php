@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\RemindersRequest;
+use App\Reminder;
+
 class RemindersController extends Controller
 {
     public function create()
@@ -11,9 +14,12 @@ class RemindersController extends Controller
         return view('reminders.create_reminders');
     }
 
-    public function store()
+    public function store(RemindersRequest $request)
     {
-        return view('reminders.create_reminders');
+        Reminder::create(request([
+            'posted_by' => 'aaa',
+            'reminder'
+        ]));
     }
 
     public function show()

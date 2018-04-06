@@ -19,6 +19,21 @@
 
     <!-- Default box -->
     <div class="box">
+    @if(count($errors))
+
+      <div class="alert alert-danger">
+          
+          @foreach($errors->all() as $error)
+                
+                <li> {{ $error }}</li>
+                
+          @endforeach
+          
+      </div>
+
+    @endif
+
+
       <form action="/reminders" method="POST" id="form_validate">
         @csrf
 
